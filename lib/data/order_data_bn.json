@@ -1,0 +1,34 @@
+{
+    "orders": [
+        {
+            "serialNumber": "১",
+            "itemName": "চাল (মিনিকেট)",
+            "qty": "২",
+            "price": "৭৫.০০"
+        },
+        {
+            "serialNumber": "২",
+            "itemName": "সয়াবিন তেল",
+            "qty": "১",
+            "price": "১৮০.৫০"
+        },
+        {
+            "serialNumber": "৩",
+            "itemName": "পেঁয়াজ",
+            "qty": "৫",
+            "price": "৪০.২৫"
+        },
+        {
+            "serialNumber": "৪",
+            "itemName": "ডাল (মসুর)",
+            "qty": "১",
+            "price": "১২০.০০"
+        },
+        {
+            "serialNumber": "৫",
+            "itemName": "চিনি",
+            "qty": "৩",
+            "price": "৬৫.৭৫"
+        }
+    ]
+}

@@ -23,16 +23,34 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-        child: ElevatedButton.icon(
-          onPressed: PrinterService.printReceipt,
-          icon: const Icon(Icons.print),
-          label: const Text(
-            "Print Receipt (English)",
-            style: TextStyle(fontSize: 18),
-          ),
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          ),
+        child: Column(
+          mainAxisAlignment: .center,
+          crossAxisAlignment: .center,
+          children: [
+            ElevatedButton.icon(
+              onPressed: PrinterService.printReceipt,
+              icon: const Icon(Icons.print),
+              label: const Text(
+                "Print Receipt (English)",
+                style: TextStyle(fontSize: 18),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+            ),
+            SizedBox(height: 20,),
+            ElevatedButton.icon(
+              onPressed: PrinterService.printBanglaReceipt,
+              icon: const Icon(Icons.print),
+              label: const Text(
+                "Print Receipt (Bangla)",
+                style: TextStyle(fontSize: 18),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+            ),
+          ],
         ),
       ),
     );

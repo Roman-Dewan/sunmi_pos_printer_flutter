@@ -78,11 +78,6 @@ class PrinterService {
       for (var item in orders) {
         String name = item['itemName'];
 
-        // Truncate name if it's too long
-        if (name.length > 10) {
-          name = '${name.substring(0, 9)}.';
-        }
-
         int qty = random.nextInt(5) + 1; // Random quantity 1 to 5
         double unitPrice = item['price'];
         double itemTotal = unitPrice * qty;
@@ -217,11 +212,6 @@ class PrinterService {
       // Items
       for (var item in orders) {
         String name = item['itemName'];
-
-        // Truncate name if it's too long
-        if (name.length > 9) {
-          name = '${name.substring(0, 8)}.';
-        }
 
         // Parse Bangla numbers to English for calculation
         String qtyBangla = item['qty'].toString();

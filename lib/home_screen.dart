@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'printer/printer_service.dart';
+import 'pos_printer/printer_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

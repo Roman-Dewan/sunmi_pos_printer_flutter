@@ -15,7 +15,7 @@
         {
             "serialNumber": 3,
             "itemName": "USB-C Cable",
-            "qty": 1,
+            "qty": 3,
             "price": 4.25
         },
         {
@@ -27,7 +27,7 @@
         {
             "serialNumber": 5,
             "itemName": "Bluetooth Headphones",
-            "qty": 1,
+            "qty": 5,
             "price": 35.75
         }
     ]

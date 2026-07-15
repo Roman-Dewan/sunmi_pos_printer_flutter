@@ -6,7 +6,6 @@ import 'package:sunmi_printer_plus/sunmi_printer_plus.dart';
 
 class PrinterService {
   static Future<void> bindPrinter() async {
-    // Rebind the printer service for v4
     await SunmiPrinterPlus().rebindPrinter();
   }
 
@@ -42,18 +41,28 @@ class PrinterService {
       await SunmiPrinter.printRow(
         cols: [
           SunmiColumn(
+            text: 'SL',
+            width: 2,
+            style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+          ),
+          SunmiColumn(
+            text: 'Item',
+            width: 11,
+            style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+          ),
+          SunmiColumn(
             text: 'Qty',
             width: 4,
             style: SunmiTextStyle(align: SunmiPrintAlign.CENTER),
           ),
           SunmiColumn(
-            text: 'Item',
-            width: 16,
-            style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+            text: 'Price',
+            width: 6,
+            style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
           ),
           SunmiColumn(
-            text: 'Price',
-            width: 10,
+            text: 'Total',
+            width: 7,
             style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
           ),
         ],
@@ -63,14 +72,15 @@ class PrinterService {
 
       double totalAmount = 0.0;
       final random = Random();
+      int slNo = 1;
 
       // Items
       for (var item in orders) {
         String name = item['itemName'];
 
         // Truncate name if it's too long
-        if (name.length > 15) {
-          name = '${name.substring(0, 14)}.';
+        if (name.length > 10) {
+          name = '${name.substring(0, 9)}.';
         }
 
         int qty = random.nextInt(5) + 1; // Random quantity 1 to 5
@@ -81,22 +91,33 @@ class PrinterService {
         await SunmiPrinter.printRow(
           cols: [
             SunmiColumn(
+              text: slNo.toString(),
+              width: 2,
+              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+            ),
+            SunmiColumn(
+              text: name,
+              width: 11,
+              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+            ),
+            SunmiColumn(
               text: qty.toString(),
               width: 4,
               style: SunmiTextStyle(align: SunmiPrintAlign.CENTER),
             ),
             SunmiColumn(
-              text: name,
-              width: 16,
-              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT, fontSize: 40),
+              text: unitPrice.toStringAsFixed(2),
+              width: 6,
+              style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
             ),
             SunmiColumn(
               text: itemTotal.toStringAsFixed(2),
-              width: 10,
+              width: 7,
               style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
             ),
           ],
         );
+        slNo++;
       }
 
       await SunmiPrinter.printText('--------------------------------');
@@ -106,12 +127,12 @@ class PrinterService {
         cols: [
           SunmiColumn(
             text: 'Total:',
-            width: 20,
+            width: 23,
             style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
           ),
           SunmiColumn(
             text: '\$${totalAmount.toStringAsFixed(2)}',
-            width: 10,
+            width: 7,
             style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
           ),
         ],
@@ -161,18 +182,28 @@ class PrinterService {
       await SunmiPrinter.printRow(
         cols: [
           SunmiColumn(
-            text: 'পরিমাণ',
-            width: 8,
-            style: SunmiTextStyle(align: SunmiPrintAlign.CENTER),
-          ),
-          SunmiColumn(
-            text: 'পণ্য',
-            width: 16,
+            text: 'নং',
+            width: 3,
             style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
           ),
           SunmiColumn(
-            text: 'মূল্য',
+            text: 'পণ্য',
             width: 10,
+            style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+          ),
+          SunmiColumn(
+            text: 'পরি.',
+            width: 4,
+            style: SunmiTextStyle(align: SunmiPrintAlign.CENTER),
+          ),
+          SunmiColumn(
+            text: 'মূল্য',
+            width: 6,
+            style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
+          ),
+          SunmiColumn(
+            text: 'মোট',
+            width: 7,
             style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
           ),
         ],
@@ -181,14 +212,15 @@ class PrinterService {
       await SunmiPrinter.printText('--------------------------------');
 
       double totalAmount = 0.0;
+      int slNo = 1;
 
       // Items
       for (var item in orders) {
         String name = item['itemName'];
 
         // Truncate name if it's too long
-        if (name.length > 15) {
-          name = '${name.substring(0, 14)}.';
+        if (name.length > 9) {
+          name = '${name.substring(0, 8)}.';
         }
 
         // Parse Bangla numbers to English for calculation
@@ -203,6 +235,10 @@ class PrinterService {
         double itemTotal = unitPrice * qty;
         totalAmount += itemTotal;
 
+        String slNoBangla = convertEnglishToBanglaNumber(slNo.toString());
+        String unitPriceBangla = convertEnglishToBanglaNumber(
+          unitPrice.toStringAsFixed(2),
+        );
         String itemTotalBangla = convertEnglishToBanglaNumber(
           itemTotal.toStringAsFixed(2),
         );
@@ -210,22 +246,33 @@ class PrinterService {
         await SunmiPrinter.printRow(
           cols: [
             SunmiColumn(
+              text: slNoBangla,
+              width: 3,
+              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+            ),
+            SunmiColumn(
+              text: name,
+              width: 10,
+              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT),
+            ),
+            SunmiColumn(
               text: qtyBangla,
               width: 4,
               style: SunmiTextStyle(align: SunmiPrintAlign.CENTER),
             ),
             SunmiColumn(
-              text: name,
-              width: 16,
-              style: SunmiTextStyle(align: SunmiPrintAlign.LEFT, fontSize: 40),
+              text: unitPriceBangla,
+              width: 6,
+              style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
             ),
             SunmiColumn(
               text: itemTotalBangla,
-              width: 10,
+              width: 7,
               style: SunmiTextStyle(align: SunmiPrintAlign.RIGHT),
             ),
           ],
         );
+        slNo++;
       }
 
       await SunmiPrinter.printText('--------------------------------');

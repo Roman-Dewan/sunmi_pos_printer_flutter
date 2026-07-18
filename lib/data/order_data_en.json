@@ -1,13 +1,13 @@
 {
     "orders": [
         {
-            "serialNumber": 1,
+            "serialNumber": 14,
             "itemName": "Wireless Mouse",
             "qty": 1,
             "price": 15.99
         },
         {
-            "serialNumber": 2,
+            "serialNumber": 89,
             "itemName": "Mechanical Keyboard",
             "qty": 1,
             "price": 49.50
@@ -19,16 +19,46 @@
             "price": 4.25
         },
         {
-            "serialNumber": 4,
+            "serialNumber": 52,
             "itemName": "Laptop Stand",
             "qty": 1,
             "price": 22.00
         },
         {
-            "serialNumber": 5,
+            "serialNumber": 7,
             "itemName": "Bluetooth Headphones",
             "qty": 5,
             "price": 35.75
+        },
+        {
+            "serialNumber": 105,
+            "itemName": "4K Web Camera",
+            "qty": 1,
+            "price": 65.00
+        },
+        {
+            "serialNumber": 22,
+            "itemName": "Dual-Monitor Arm",
+            "qty": 2,
+            "price": 38.90
+        },
+        {
+            "serialNumber": 63,
+            "itemName": "Ergonomic Desk Mat",
+            "qty": 1,
+            "price": 18.50
+        },
+        {
+            "serialNumber": 41,
+            "itemName": "Portable SSD 1TB",
+            "qty": 2,
+            "price": 89.99
+        },
+        {
+            "serialNumber": 76,
+            "itemName": "Smart LED Desk Lamp",
+            "qty": 1,
+            "price": 27.25
         }
     ]
 }

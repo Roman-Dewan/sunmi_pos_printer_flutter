@@ -189,23 +189,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               const SizedBox(height: 40),
-              ElevatedButton.icon(
-                onPressed: _isConnected
-                    ? () async {
-                        await ExternalPrinterService.printReceipt();
-                      }
-                    : null,
-                icon: const Icon(Icons.print),
-                label: const Text(
-                  "Print Receipt",
-                  style: TextStyle(fontSize: 18),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 12,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: _isConnected
+                        ? () async {
+                            await ExternalPrinterService.printReceipt();
+                          }
+                        : null,
+                    icon: const Icon(Icons.print),
+                    label: const Text(
+                      "English Receipt",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 12,
+                      ),
+                    ),
                   ),
-                ),
+                  ElevatedButton.icon(
+                    onPressed: _isConnected
+                        ? () async {
+                            await ExternalPrinterService.banglaPrintReceipt();
+                          }
+                        : null,
+                    icon: const Icon(Icons.print),
+                    label: const Text(
+                      "Bangla Receipt",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 12,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

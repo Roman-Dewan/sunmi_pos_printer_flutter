@@ -1,13 +1,13 @@
 {
     "orders": [
         {
-            "serialNumber": "১",
+            "serialNumber": "১২",
             "itemName": "চাল (মিনিকেট)",
-            "qty": "২",
+            "qty": "১২",
             "price": "৭৫.০০"
         },
         {
-            "serialNumber": "২",
+            "serialNumber": "৪৫",
             "itemName": "সয়াবিন তেল",
             "qty": "১",
             "price": "১৮০.৫০"
@@ -19,16 +19,46 @@
             "price": "৪০.২৫"
         },
         {
-            "serialNumber": "৪",
+            "serialNumber": "২৮",
             "itemName": "ডাল (মসুর)",
-            "qty": "১",
+            "qty": "৫৫৫৫",
             "price": "১২০.০০"
         },
         {
-            "serialNumber": "৫",
+            "serialNumber": "৭",
             "itemName": "চিনি",
             "qty": "৩",
             "price": "৬৫.৭৫"
+        },
+        {
+            "serialNumber": "৯৩",
+            "itemName": "আটা (প্যাকেট)",
+            "qty": "২",
+            "price": "৫৫.০০"
+        },
+        {
+            "serialNumber": "১৬",
+            "itemName": "গুঁড়ো দুধ",
+            "qty": "১",
+            "price": "৮৫০.০০"
+        },
+        {
+            "serialNumber": "৫৪",
+            "itemName": "লবণ (আইওডিনযুক্ত)",
+            "qty": "১",
+            "price": "৪২.০০"
+        },
+        {
+            "serialNumber": "৩৯",
+            "itemName": "চা পাতা",
+            "qty": "৪",
+            "price": "১৩৫.৫০"
+        },
+        {
+            "serialNumber": "৮১",
+            "itemName": "ডিম (ডজন)",
+            "qty": "২",
+            "price": "১৫০.০০"
         }
     ]
 }
